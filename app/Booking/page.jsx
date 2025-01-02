@@ -1,10 +1,9 @@
-import Home from '@/components/Home'
+import BookingForm from '@/components/BookingForm'
 import React from 'react'
 
 const page = () => {
   return (
-    <Home/>
-      
+    <BookingForm/>
   )
 }
 
