@@ -16,16 +16,19 @@ export default function Home() {
         </p>
 
         {/* Call-to-Action Button */}
-        <Link href="/Booking" className="md:block">
+        <div className="flex justify-center md:block">
+          <Link href="/Booking" className="md:w-max">
           <span className="bg-[#0f0] text-black px-6 py-3 rounded-md font-semibold shadow-md hover:bg-[#00cc00] transition mr-1">
-            Book Online Now
+            Book
           </span>
         </Link>
-        <Link href="/checkavailability" className="md:block">
+        <Link href="/checkavailability">
           <span className="bg-[#0f0] text-black px-6 py-3 rounded-md font-semibold shadow-md hover:bg-[#00cc00] transition ml-1">
-            check availability
+            check 
           </span>
         </Link>
+        </div>
+        
       </div>
     </div>
   );
