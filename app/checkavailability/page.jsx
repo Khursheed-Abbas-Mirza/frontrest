@@ -28,7 +28,7 @@ export default function CancelBooking() {
     const res=await response.json()
    
     if(res.available){
-        setModalMessage("Your slot is available come with hurray let's have a fun.");
+        setModalMessage("hurray Your slot is available come  let's have a tasty meal.");
         setShowModal(true);
         setFormData({ date: "",time: "" }); // Reset form
     }
