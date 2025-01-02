@@ -16,12 +16,12 @@ export default function Home() {
         </p>
 
         {/* Call-to-Action Button */}
-        <Link href="/Booking">
+        <Link href="/Booking" className="md:block">
           <span className="bg-[#0f0] text-black px-6 py-3 rounded-md font-semibold shadow-md hover:bg-[#00cc00] transition mr-1">
             Book Online Now
           </span>
         </Link>
-        <Link href="/checkavailability">
+        <Link href="/checkavailability" className="md:block">
           <span className="bg-[#0f0] text-black px-6 py-3 rounded-md font-semibold shadow-md hover:bg-[#00cc00] transition ml-1">
             check availability
           </span>
