@@ -6,7 +6,7 @@ export default function Home() {
       <div className="w-full max-w-lg p-8 bg-transparent backdrop-blur-lg  text-center">
         {/* Heading */}
         <h1 className="text-3xl font-bold text-[#fff] mb-4">
-          Welcome to Restuarnat Online Booking!
+          Welcome to Restuarant Online Booking!
         </h1>
 
         {/* Subheading */}
