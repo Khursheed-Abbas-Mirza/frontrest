@@ -1,6 +1,6 @@
 "use client"
 import { useState } from "react";
-
+import Loading from '@/components/Loading';
 export default function CancelBooking() {
   const [formData, setFormData] = useState({
     name: "",
@@ -9,7 +9,7 @@ export default function CancelBooking() {
 
   const [showModal, setShowModal] = useState(false); // State for popup
   const [modalMessage, setModalMessage] = useState("");
-
+  const [loading, setLoading] = useState(false);
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -20,6 +20,7 @@ export default function CancelBooking() {
 
     // Mock API Call Simulation
     if (formData.name && formData.orderId) {
+      setLoading(true);
     const response=await fetch('https://backend-0hgc.onrender.com/api/deletebooking', {
       method: 'DELETE',
       headers: {
@@ -31,10 +32,12 @@ export default function CancelBooking() {
     if(res.success){
         
         setModalMessage("Your order has been canceled successfully.");
+        setLoading(false);
         setShowModal(true);
         setFormData({ name: "", orderId: "" }); // Reset form
     }
     } else {
+      setLoading(false);
       setModalMessage("Please fill in all fields.");
       setShowModal(true);
     }
@@ -107,6 +110,7 @@ export default function CancelBooking() {
           </div>
         </div>
       )}
+      {loading && <Loading/>}
     </div>
   );
 }

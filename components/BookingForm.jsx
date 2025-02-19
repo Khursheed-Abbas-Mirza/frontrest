@@ -1,6 +1,6 @@
 "use client"
 import { useState } from "react";
-
+import Loading from '@/components/Loading';
 // Modal Component
 function Modal({ isOpen, message, onClose }) {
   if (!isOpen) return null;
@@ -33,6 +33,7 @@ export default function BookingForm() {
   });
 
   const [modal, setModal] = useState({ isOpen: false, message: "" });
+  const [loading, setLoading] = useState(false);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -49,7 +50,9 @@ export default function BookingForm() {
       setModal({ isOpen: true, message: "All fields are required." });
       return;
     }
+    setLoading(true);
     const isSlotFilled = await fetch('https://backend-0hgc.onrender.com/api/check',{
+    
       method:'POST',
       headers:{'Content-Type':'application/json'},
       body:JSON.stringify({
@@ -59,10 +62,13 @@ export default function BookingForm() {
     })
 
     const isFilled=await isSlotFilled.json()
+    
     if(!isFilled.available){
+      setLoading(false);
       setModal({ isOpen: true, message: {msg:"Sorry, this slot is already filled.",order_id:""} });
       return;
     }
+
     const response = await fetch("https://backend-0hgc.onrender.com/api/book", {
       method: "POST",
       headers: {
@@ -71,7 +77,7 @@ export default function BookingForm() {
       body: JSON.stringify(formData),
     });
     const res=await response.json()
-    
+    setLoading(false);
     setModal({ isOpen: true, message:{ msg:"Booking Confirmed! Thank you for your reservation.",order_id:res.order_id} });
     setFormData({ date: "", time: "", guests: "", name: "", contact: "" });
     return 
@@ -170,6 +176,7 @@ export default function BookingForm() {
         message={modal.message}
         onClose={() => setModal({ isOpen: false, message: "" })}
       />
+      {loading && <Loading/>}
     </div>
   );
 }
