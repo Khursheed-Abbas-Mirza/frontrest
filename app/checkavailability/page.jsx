@@ -18,7 +18,7 @@ export default function CancelBooking() {
   const handleSubmit = async(e) => {
     e.preventDefault();
     if (formData.date && formData.time) {
-    const response=await fetch('https://backend-0hgc.onrender.com/api/check', {
+    const response=await fetch('https://restback.vercel.app/api/check', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

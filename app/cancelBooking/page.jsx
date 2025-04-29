@@ -21,7 +21,7 @@ export default function CancelBooking() {
     // Mock API Call Simulation
     if (formData.name && formData.orderId) {
       setLoading(true);
-    const response=await fetch('https://backend-0hgc.onrender.com/api/deletebooking', {
+    const response=await fetch('https://restback.vercel.app/api/deletebooking', {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',

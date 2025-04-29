@@ -9,7 +9,7 @@ export default function ShowBooking() {
   useEffect(() => {
     async function fetchBookings() {
       try {
-        const response = await fetch("https://backend-0hgc.onrender.com/api/getbookings"); // Adjust API endpoint if needed
+        const response = await fetch("https://restback.vercel.app/api/getbookings"); // Adjust API endpoint if needed
         const data = await response.json();
         setBookings(data);
         setLoading(false);

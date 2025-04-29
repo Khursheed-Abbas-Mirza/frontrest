@@ -51,7 +51,7 @@ export default function BookingForm() {
       return;
     }
     setLoading(true);
-    const isSlotFilled = await fetch('https://backend-0hgc.onrender.com/api/check',{
+    const isSlotFilled = await fetch('https://restback.vercel.app/api/check',{
     
       method:'POST',
       headers:{'Content-Type':'application/json'},
@@ -69,7 +69,7 @@ export default function BookingForm() {
       return;
     }
 
-    const response = await fetch("https://backend-0hgc.onrender.com/api/book", {
+    const response = await fetch("https://restback.vercel.app/api/book", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
